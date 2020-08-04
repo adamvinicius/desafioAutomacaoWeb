@@ -3,6 +3,7 @@ package steps;
 import static org.junit.Assert.assertEquals;
 
 import core.Driver;
+import enums.Hobbie;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Quando;
 import pages.RegisterPage;
@@ -26,14 +27,14 @@ public class RegisterSteps {
 	}
 
 	@Quando("os campos do formulario estao preenchidos com dados validos")
-	public void osCamposDoFormularioEstaoPreenchidosComDadosValidos() {
+	public void osCamposDoFormularioEstaoPreenchidosComDadosValidos() throws Exception {
 	    registerPage.setAddres("rua mauro")
 	    .setEmail("adamvinicius@gmail.com")
 	    .setPhone("454215451")
 	    .clickMale()
-	   // .clickHobbies("Movies")
-	  // .clickHobbies("Hockey")
-	   // .selectLanguages("English")
+	    .clickHobbies(Hobbie.MOVIES)
+	    .clickHobbies(Hobbie.HOCKEY)
+	    .selectLanguages("English")
 	    .selectSkills("Java")
 	    .selectCountry("Brazil")
 	    .selectCountryDois("Australia")
@@ -43,7 +44,8 @@ public class RegisterSteps {
 	    .setPassword("senha")
 	    .setConfirmPassword("senha");
 	    
-	    
+	    registerPage.setUpload(System.getProperty("user.dir")+"/lib/imagem.jpg");
+	   
 	    
 	}
 }

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.cursos</groupId>
 	<artifactId>desafioAutomacaoWeb</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<properties>
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
@@ -20,4 +20,33 @@
 		</dependency>
 
 	</dependencies>
+	
+	<build>
+		<plugins>
+			
+			<plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>3.14.0</version>
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<projectName>${project.name} - System Testing Execution Report</projectName>
+							<outputDirectory>${project.build.directory}/reports</outputDirectory>
+							<jsonFiles>
+								<param>${project.build.directory}/reports/CucumberReport.json</param>
+							</jsonFiles>
+							<parallelTesting>false</parallelTesting>
+							<testFailureIgnore>true</testFailureIgnore>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

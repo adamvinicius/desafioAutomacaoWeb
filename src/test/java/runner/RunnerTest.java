@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		features = "src/test/resources/features",
 		tags = "",
 		glue = "steps",
-		plugin = {"json:target/reports/CucumberReports.json", "pretty"},
+		plugin = {"json:target/reports/CucumberReport.json", "pretty"},
 		snippets = SnippetType.CAMELCASE
 			
 		)

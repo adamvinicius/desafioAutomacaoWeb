@@ -3,6 +3,7 @@ package pages;
 import java.util.LinkedHashMap;
 
 import core.Element;
+import enums.Hobbie;
 import map.RegisterMap;
 
 public class RegisterPage {
@@ -46,20 +47,20 @@ public class RegisterPage {
 		return this;
 	}
 	
-	public RegisterPage clickHobbies(String hobbie) {
-		LinkedHashMap<String, Element> hobbies = new LinkedHashMap<>();
-		hobbies.put("cricket", registerMap.cricket);
-		hobbies.put("movies", registerMap.movies);
-		hobbies.put("hockey", registerMap.hockey);
+	public RegisterPage clickHobbies(Hobbie hobbie) {
+		LinkedHashMap<Hobbie, Element> hobbies = new LinkedHashMap<>();
+		hobbies.put(Hobbie.CRICKET, registerMap.cricket);
+		hobbies.put(Hobbie.MOVIES, registerMap.movies);
+		hobbies.put(Hobbie.HOCKEY, registerMap.hockey);
 		
 		hobbies.get(hobbie).click();
 		return this;
 				
 	}
 	
-	public RegisterPage selectLanguages(String value) {
+	public RegisterPage selectLanguages(String value) throws Exception {
 		registerMap.inpLanguages.click();
-		registerMap.languages.select(value);
+		registerMap.languages.selectLista(value);
 		return this;
 	}
 	
